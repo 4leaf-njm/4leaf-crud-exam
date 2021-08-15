@@ -13,7 +13,7 @@ const Post = new Schema(
       required: true,
     },
     hit: {
-      type: String,
+      type: Number,
       required: true,
       default: 0,
     },

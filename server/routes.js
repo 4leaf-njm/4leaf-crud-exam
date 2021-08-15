@@ -1,5 +1,7 @@
 const routes = {
-  test: "/api/test",
+  getPostList: "/api/getPostList",
+  getPostDetail: "/api/getPostDetail",
+  deletePost: "/api/deletePost",
 };
 
 module.exports = routes;

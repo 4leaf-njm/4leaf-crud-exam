@@ -65,16 +65,90 @@ const PostBoardDetail = ({ match, history }) => {
   return (
     <Wrapper margin={`50px 0`}>
       <RsWrapper>
-        <Wrapper margin={`10px 0`}>제목 : {postData && postData.title}</Wrapper>
-        <Wrapper margin={`10px 0`}>
-          내용 : {postData && postData.content}
+        <Wrapper dr={`row`} al={`normal`} margin={`5px`}>
+          <Wrapper width={`150px`} bgColor={`#f3f3f3`}>
+            제목
+          </Wrapper>
+
+          <Wrapper
+            al={`flex-start`}
+            width={`calc(100% - 150px)`}
+            padding={`10px`}
+            borderBottom={`1px solid #f3f3f3`}
+          >
+            {postData && postData.title}
+          </Wrapper>
         </Wrapper>
-        <Wrapper margin={`10px 0`}>
-          작성자 : {postData && postData.author}
+
+        <Wrapper dr={`row`} al={`normal`} margin={`5px`}>
+          <Wrapper width={`150px`} bgColor={`#f3f3f3`}>
+            작성자
+          </Wrapper>
+
+          <Wrapper
+            al={`flex-start`}
+            width={`calc(100% - 150px)`}
+            padding={`10px`}
+            borderBottom={`1px solid #f3f3f3`}
+          >
+            {postData && postData.author}
+          </Wrapper>
         </Wrapper>
-        <Wrapper margin={`10px 0`}>조회수 : {postData && postData.hit}</Wrapper>
-        <Wrapper margin={`10px 0`}>
-          등록일 : {postData && postData.createdAt}
+
+        <Wrapper dr={`row`} al={`normal`} margin={`5px`}>
+          <Wrapper width={`150px`} bgColor={`#f3f3f3`}>
+            등록일
+          </Wrapper>
+
+          <Wrapper
+            al={`flex-start`}
+            width={`calc(100% - 150px)`}
+            padding={`10px`}
+            borderBottom={`1px solid #f3f3f3`}
+          >
+            {postData && postData.createdAt}
+          </Wrapper>
+        </Wrapper>
+
+        <Wrapper dr={`row`} al={`normal`} margin={`5px`}>
+          <Wrapper width={`150px`} bgColor={`#f3f3f3`}>
+            조회수
+          </Wrapper>
+
+          <Wrapper
+            al={`flex-start`}
+            width={`calc(100% - 150px)`}
+            padding={`10px`}
+            borderBottom={`1px solid #f3f3f3`}
+          >
+            {postData && postData.hit}
+          </Wrapper>
+        </Wrapper>
+
+        <Wrapper dr={`row`} al={`normal`} margin={`5px`}>
+          <Wrapper width={`150px`} bgColor={`#f3f3f3`}>
+            내용
+          </Wrapper>
+
+          <Wrapper
+            al={`flex-start`}
+            width={`calc(100% - 150px)`}
+            padding={`10px`}
+            borderBottom={`1px solid #f3f3f3`}
+          >
+            {postData &&
+              postData.content.split(`\n`).map((data, idx) => {
+                return (
+                  <Wrapper
+                    key={`${data}${idx}`}
+                    margin={`2px 0`}
+                    width={`auto`}
+                  >
+                    {data}
+                  </Wrapper>
+                );
+              })}
+          </Wrapper>
         </Wrapper>
 
         <Wrapper dr={`row`} margin={`20px 0`}>

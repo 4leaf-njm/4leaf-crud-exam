@@ -18,6 +18,10 @@ const PostBoardWrite = ({ history, location }) => {
 
   const [isUpdateMode, setIsUpdateMode] = useState(false);
 
+  const moveBackHandler = () => {
+    history.goBack();
+  };
+
   const createPostHandler = async () => {
     if (!inputTitle || inputTitle.trim() === "") {
       alert("제목을 입력해주세요.");
@@ -195,9 +199,19 @@ const PostBoardWrite = ({ history, location }) => {
           <Button
             width={`240px`}
             height={`40px`}
+            margin={`0 5px`}
             onClick={isUpdateMode ? updatePostHandler : createPostHandler}
           >
             {isUpdateMode ? `수정` : `등록`}
+          </Button>
+
+          <Button
+            width={`240px`}
+            height={`40px`}
+            margin={`0 5px`}
+            onClick={moveBackHandler}
+          >
+            취소
           </Button>
         </Wrapper>
       </RsWrapper>

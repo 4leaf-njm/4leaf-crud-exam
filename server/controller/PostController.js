@@ -1,4 +1,5 @@
 const Post = require("../models/Post");
+const { CURRENT_TIME } = require("../commonUtils");
 
 const getPostList = async (req, res) => {
   const {
@@ -48,20 +49,51 @@ const getPostDetail = async (req, res) => {
   return res.json({ result });
 };
 
-const deletePost = async (req, res) => {
+const createPost = async (req, res) => {
   const {
-    body: { id },
+    body: { title, author, content },
   } = req;
 
   let result = false;
 
   try {
+    const currentTime = await CURRENT_TIME();
+
+    await Post.create({
+      title,
+      author,
+      content,
+      createdAt: currentTime,
+      updatedAt: currentTime,
+    });
+
+    result = true;
+  } catch (e) {
+    console.log(e);
+  }
+
+  return res.json({ result });
+};
+
+const updatePost = async (req, res) => {
+  const {
+    body: { id, title, author, content },
+  } = req;
+
+  let result = false;
+
+  try {
+    const currentTime = await CURRENT_TIME();
+
     await Post.updateOne(
       {
         _id: id,
       },
       {
-        isDelete: true,
+        title,
+        author,
+        content,
+        updatedAt: currentTime,
       }
     );
 
@@ -73,6 +105,40 @@ const deletePost = async (req, res) => {
   return res.json({ result });
 };
 
-const PostController = { getPostList, getPostDetail, deletePost };
+const deletePost = async (req, res) => {
+  const {
+    body: { id },
+  } = req;
+
+  let result = false;
+
+  try {
+    const currentTime = await CURRENT_TIME();
+
+    await Post.updateOne(
+      {
+        _id: id,
+      },
+      {
+        isDelete: true,
+        deletedAt: currentTime,
+      }
+    );
+
+    result = true;
+  } catch (e) {
+    console.log(e);
+  }
+
+  return res.json({ result });
+};
+
+const PostController = {
+  getPostList,
+  getPostDetail,
+  createPost,
+  updatePost,
+  deletePost,
+};
 
 module.exports = PostController;

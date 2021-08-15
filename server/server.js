@@ -15,6 +15,8 @@ app.use(bodyParser.json());
 
 app.post(routes.getPostList, PostRouter);
 app.post(routes.getPostDetail, PostRouter);
+app.post(routes.createPost, PostRouter);
+app.post(routes.updatePost, PostRouter);
 app.post(routes.deletePost, PostRouter);
 
 app.listen(port, () => {

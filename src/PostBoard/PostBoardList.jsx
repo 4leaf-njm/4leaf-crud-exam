@@ -72,6 +72,12 @@ const PostBoardList = ({ history }) => {
           </Wrapper>
         </Wrapper>
 
+        <Wrapper dr={`row`} ju={`flex-end`} margin={`20px 0 40px`}>
+          <Button width={`120px`} onClick={() => moveLinkHandler(`/write`)}>
+            등록
+          </Button>
+        </Wrapper>
+
         <Wrapper dr={`row`}>
           <Wrapper width={`10%`}>번호</Wrapper>
           <Wrapper width={`55%`}>제목</Wrapper>

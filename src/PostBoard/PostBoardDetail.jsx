@@ -85,7 +85,11 @@ const PostBoardDetail = ({ match, history }) => {
           >
             목록
           </Button>
-          <Button margin={`0 5px`} width={`120px`}>
+          <Button
+            margin={`0 5px`}
+            width={`120px`}
+            onClick={() => moveLinkHandler(`/write?id=${postData._id}`)}
+          >
             수정
           </Button>
           <Button margin={`0 5px`} width={`120px`} onClick={deletePostHandler}>

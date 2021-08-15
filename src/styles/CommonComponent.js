@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
+  background-color: ${(props) => props.bgColor};
+  border-bottom: ${(props) => props.borderBottom};
   cursor: ${(props) => props.cursor};
 `;
 
@@ -21,6 +23,18 @@ export const Input = styled.input`
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
+  outline: none;
+  border: 1px solid #dedede;
+`;
+
+export const Textarea = styled.textarea`
+  width: ${(props) => props.width || `100%`};
+  height: ${(props) => props.height};
+  margin: ${(props) => props.margin};
+  padding: ${(props) => props.padding};
+  outline: none;
+  border: 1px solid #dedede;
+  resize: none;
 `;
 
 export const Button = styled.button`
@@ -32,6 +46,7 @@ export const Button = styled.button`
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
+  outline: none;
 `;
 
 export const Select = styled.select`
@@ -39,6 +54,7 @@ export const Select = styled.select`
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
+  outline: none;
 `;
 
 export const SelectOption = styled.option``;
